@@ -3,7 +3,8 @@ class Player < ActiveRecord::Base
     belongs_to :team
     has_many :events, through: :schedules
 
-    validates :age presence: true
+    validates :age, presence: true
     validates :age, numericality: { greater_than: 5, less_than: 16 }
-   
+    
+    has_secure_password
 end
