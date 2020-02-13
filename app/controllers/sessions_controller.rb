@@ -1,17 +1,22 @@
 class SessionsController < ApplicationController
-    def new
-    end
+  skip_before_action :authorized, only: [:new, :create, :welcome]
+  def welcome
+  end
+    
+  def new
+  end
+  def login
+  end
 
-    def create
-        @player = Player.find_by(:email) =>params[:email]
-        if @player
-            @session:[current_player_id] = @player.id
-            redirect_to '/home'
-        else
-        redirect_to '/login'
-        end
+  def create
+    @player = Player.find_by(username: params[:username])
+    if @player && @player.authenticate(params[:password])
+      sessions[:player_id] = @player.id
+      redirect_to '/welcome'
+    else
+      redirect_to '/login'
     end
-  
+  end
         #elsif User.find_by(username: params[:user][:username])
           #redirect '/login'
         #else
@@ -24,14 +29,8 @@ class SessionsController < ApplicationController
          # redirect them to a show page
            #redirect "/players"
         #end
+  def page_requires_login
+  end
+        
 end
-    
   
-  
-
-      
-    
-  
-      
-  
-
