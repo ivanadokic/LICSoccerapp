@@ -1,13 +1,15 @@
 class ApplicationController < ActionController::Base
-    before_action :current_player
+    before_action :authorized #The macro before_action requires the authorized method to run before any other action is taken. 
+    include ApplicationHelper
+
+    enable :sessions
+    set :session_secret, "super_secret_code_word" #encript our sessions
 
     def home
+    end
 
+    def authorized
+        redirect_to '/welcome' unless logged_in?
     end
     
-    def current_player
-        if session[:current_player_id]
-            @current_player = Player.find(session[:current_player_id])
-        end
-    end
 end
