@@ -1,17 +1,14 @@
 class PlayersController < ApplicationController
-
+    skip_before_action :authorized, only: [:new, :create]
     def new
-        if session[:cuurent_player_id]
-            redirect_to "/", :notice => "Already logged in!"
-        end
+        @player = Player.new
     end
 
-    def create
-        @player = Player.new
-        Player.create(username: 'username', name: 'name', age: 'age', team_id: 'team')
-        @player.save
-        
-        redirect_to "/login"
+    def create 
+        @player = Player.create (params.require(:player).permit(:username, :password))
+
+        session[:player_id] = @player.id
+        redirect_to '/welcome'
     end
 
 end
