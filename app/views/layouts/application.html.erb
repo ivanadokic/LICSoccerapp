@@ -10,11 +10,14 @@
   </head>
 
   <body>
+  <div>
   <% if session[:current_player_id] %>
   <nav>
   You are logged in as: <%= @current_player_id %>
+ |
   </nav>
   <% end %>
+  </div>
     <%= yield %>
   </body>
 </html>
