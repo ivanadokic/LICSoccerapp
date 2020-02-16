@@ -35,6 +35,8 @@ class SessionsController < ApplicationController
     reset_session
     redirect_to "/"
   end
+  def omniauth
+  end
         
 end
   

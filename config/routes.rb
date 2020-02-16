@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   get 'authorized', to: 'sessions#page_requires_login'
   get 'register', to: 'players#new'
   get 'login', to: 'sessions#new'
-  match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  get '/auth/:provider/callback' => 'sessions#omniouth'
 end
