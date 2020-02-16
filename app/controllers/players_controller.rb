@@ -14,5 +14,11 @@ class PlayersController < ApplicationController
             render :new
         end
     end
+    def show
+        @player = Player.find_by_id(params[:id])
+    end
+
+    
+    
 
 end

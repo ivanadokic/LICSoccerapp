@@ -1,8 +1,9 @@
 <h1>LICsoccer app</h1>
 <% if logged_in? %>
-    <p>You are Logged In, Welcome<%= current_player.username %></p>
+    <p>You are Logged In, Welcome <%= current_player.username %></p>
     <p>Your current Team is <%= current_player.team.name %></p>
 <%end%>
 
 
 <%= button_to "Check Events", '/login', method: :get%>
+<%= button_to "Logout", '/', method: :get%>
