@@ -7,9 +7,10 @@
   <%= e.text_field :event_type%><br>
 
   <%= e.label :start%><br>
-  <%= e.number_field :start%><br>
+  <%= e.datetime_field :start%><br>
 
- 
+  <%= e.label :end%><br>
+  <%= e.datetime_field :end%><br>
 
   <%= submit_tag "Create"%>
 <%end%>
