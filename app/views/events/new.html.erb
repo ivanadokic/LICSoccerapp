@@ -1,0 +1,15 @@
+<h1>New Event</h1>
+<%= form_for @event do |e|%>
+  <%= e.label :location%><br>
+  <%= e.text_field :location%><br>
+
+  <%= e.label :event_type%><br>
+  <%= e.text_field :event_type%><br>
+
+  <%= e.label :start%><br>
+  <%= e.number_field :start%><br>
+
+ 
+
+  <%= submit_tag "Create"%>
+<%end%>
