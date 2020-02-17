@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    before_action :authorized #The macro before_action requires the authorized method to run before any other action is taken. 
+    #before_action :authorized #The macro before_action requires the authorized method to run before any other action is taken. 
     include ApplicationHelper
 
     enable :sessions
@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     end
 
     def authorized
-        redirect_to '/welcome' unless logged_in?
+        redirect_to login_path unless logged_in?
     end
     
 end

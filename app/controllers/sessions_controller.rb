@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :authorized, only: [:new, :create, :welcome]
+  #skip_before_action :authorized, only: [:new, :create, :welcome]
   def welcome
   end
     
@@ -22,16 +22,30 @@ class SessionsController < ApplicationController
   end
 
   #logout
-  def destroy
-    reset_session
-    redirect_to "/signup"
-  end
 
+    def destroy
+      session.delete :player_id 
+      redirect_to "/signup"
+    end
+
+  #def omniauth
+   #@player = Player.from_omniauth(auth)
+   #@player.save
+   # session[:player_id] = @player.id
+  #end
+  
   def omniauth
-    @user = User.from_omniauth(auth)
-    @user.save
-    session[:user_id] = @user.id
-    redirect_to home_path
+
+    @player = Player.find_or_create_by(uid: auth[:uid]) do |p|
+
+     p.username = auth[:info][:name]
+     p.password = SecureRandom.hex
+    
+   
+     end
+    session[:player_id] = @player.id
+    redirect_to '/welcome'
+    
   end
   
   private
@@ -42,11 +56,12 @@ class SessionsController < ApplicationController
 
   
   def self.from_omniauth(auth)
-    where(email: auth.info.email).first_or_initialize do |user|
-      user.user_name = auth.info.name
-      user.email = auth.info.email
-      user.password = SecureRandom.hex
+    where(email: auth.info.email).first_or_initialize do |player|
+     player.user_name = auth.info.name
+      player.email = auth.info.email
+      player.password = SecureRandom.hex
     end
   end  
 end
+
   

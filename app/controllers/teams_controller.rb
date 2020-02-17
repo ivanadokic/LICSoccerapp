@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-    skip_before_action :authorized, only: [:new, :create]
+    #skip_before_action :authorized, only: [:new, :create]
     def new
         @team = Team.new
     end

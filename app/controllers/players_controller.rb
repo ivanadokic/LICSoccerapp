@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-    skip_before_action :authorized, only: [:new, :create, :show]
+    #skip_before_action :authorized, only: [:new, :create, :show]
     def new
         @player = Player.new
     end
