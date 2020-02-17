@@ -4,14 +4,15 @@ Rails.application.routes.draw do
   root :to => "welcome#home"
 
   resources :players, only: [:new, :create]
-  resources :players, only: [:new, :create]
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   get 'welcome', to: 'sessions#welcome'
   get 'authorized', to: 'sessions#page_requires_login'
   get 'register', to: 'players#new'
+  
   get 'login', to: 'sessions#new'
   get '/auth/:provider/callback' => 'sessions#omniouth'
+  #expect callback from server 
   
   delete '/logout', to: 'sessions#destroy'
 end
