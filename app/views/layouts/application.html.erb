@@ -14,7 +14,10 @@
   <% if session[:current_player_id] %>
   <nav>
   You are logged in as: <%= @current_player_id %>
- |
+  <%= else %>
+ |<%= link_to("Sign Up", '/signup') %>
+ <%= link_to("Log In With Google", '/auth/google_oauth2') %>
+ <% end %>
   </nav>
   <% end %>
   </div>
