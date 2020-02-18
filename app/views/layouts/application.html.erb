@@ -16,6 +16,7 @@
   You are logged in as: <%= @current_player_id %>
   <% else %>
  |<%= link_to("Sign Up", new_player_path) %>
+ |<%= link_to("Log In", new_player_path) %>
  <%= link_to("Log In With Google", '/auth/google_oauth2') %>
  <% end %>
   </nav>
