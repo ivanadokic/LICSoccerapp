@@ -23,10 +23,10 @@ class SessionsController < ApplicationController
 
   #logout
 
-    def destroy
+  def destroy
       session.delete :player_id 
       redirect_to "/signup"
-    end
+  end
 
   #def omniauth
    #@player = Player.from_omniauth(auth)
@@ -35,33 +35,22 @@ class SessionsController < ApplicationController
   #end
   
   def omniauth
-
+ 
     @player = Player.find_or_create_by(uid: auth[:uid]) do |p|
-
      p.username = auth[:info][:name]
-     p.password = SecureRandom.hex
-    
-   
-     end
+     p.password = SecureRandom.hex #give us random password
+    end
     session[:player_id] = @player.id
     redirect_to '/welcome'
-    
   end
-  
+ 
   private
   def auth
     request.env['omniauth.auth']
   end
 
 
-  
-  def self.from_omniauth(auth)
-    where(email: auth.info.email).first_or_initialize do |player|
-     player.user_name = auth.info.name
-      player.email = auth.info.email
-      player.password = SecureRandom.hex
-    end
-  end  
 end
+
 
   

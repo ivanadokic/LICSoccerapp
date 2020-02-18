@@ -17,4 +17,7 @@ class Player < ActiveRecord::Base
         self.team = t
         self.save
     end
+
+  
+    
 end
