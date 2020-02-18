@@ -5,14 +5,16 @@ Rails.application.routes.draw do
 
   resources :players, only: [:new, :create]
   resources :events, only: [:index, :new, :create]
+  resources :teams, only: [:new, :create]
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   get 'welcome', to: 'sessions#welcome'
   get 'authorized', to: 'sessions#page_requires_login'
   get 'register', to: 'players#new'
+  post 'events', to: 'events#create'
  
   
-  get 'login', to: 'sessions#new'
+  
   get '/auth/:provider/callback' => 'sessions#omniauth'
   #expect callback from server 
   
