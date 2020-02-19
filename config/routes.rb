@@ -4,15 +4,15 @@ Rails.application.routes.draw do
   root :to => "welcome#home"
 
   resources :players, only: [:new, :create]
-  resources :events, only: [:index, :new, :create]
+  resources :events, only: [:show, :new, :create]
   resources :teams, only: [:new, :create]
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#welcome'
-  
+
   get 'welcome', to: 'sessions#welcome'
   get 'authorized', to: 'sessions#page_requires_login'
   get 'register', to: 'players#new'
-  post 'events', to: 'events#create'
+  get 'events', to: 'events#create'
  
   
   
