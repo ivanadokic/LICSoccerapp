@@ -1,0 +1,9 @@
+<h1>All Events: games and practices</h1>
+
+<ul>
+<% @events.each do |event| %>
+   <li><a href="/events/<%= event.id %>"></a></li>
+<% end %>
+</ul>
+
+<%= button_to "Logout", '/logout', method: :delete%>
