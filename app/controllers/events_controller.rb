@@ -4,19 +4,22 @@ class EventsController < ApplicationController
     end
 
     def create
-        @event = Event.create (params.permit(:event).permit(:location, :event_type, :start, :end))
+        @event = Event.create (params.require(:event).permit(:location, :event_type, :start, :end, :team_id))
         #removed require and put permit
         @event.save 
         if @event.save 
+          
            redirect_to event_path(@event)
         else
             render :new
+
         end
+
     end
 
     def index
-        if params[:event_id] && @event = Event.find_by_id(params[:team_id])
-            @events = @event.team_id
+        if params[:team_id] && @team = Team.find_by_id(params[:team_id])
+            @events = @team.events
            
         else
             @events = Event.all
@@ -40,7 +43,8 @@ class EventsController < ApplicationController
     end
     
     def show
-        @event = Event.find_by_id(params[:event_id])
+        @event = Event.find_by_id(params[:id])
+
     end
     
 end

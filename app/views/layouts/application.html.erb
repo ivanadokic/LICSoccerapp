@@ -11,9 +11,9 @@
 
   <body>
   <div>
-  <% if session[:current_player_id] %>
+  <% if session[:player_id] %>
   <nav>
-  You are logged in as: <%= @current_player_id %>
+  You are logged in as: <%= current_player.username %>
   <% else %>
  |<%= link_to("Sign Up", new_player_path) %>
  |<%= link_to("Log In", '/login') %>

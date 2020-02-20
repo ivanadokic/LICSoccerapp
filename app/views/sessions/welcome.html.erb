@@ -3,7 +3,7 @@
     <p>You are Logged In, Welcome <%= current_player.username %></p>
     <p>Your current Team is <%= current_player.team.name %></p>
 
-<%= button_to "Check Events", '/events', method: :post%>
+<%= button_to "Check Events", '/events', method: :get%>
 
 <%end%>
 

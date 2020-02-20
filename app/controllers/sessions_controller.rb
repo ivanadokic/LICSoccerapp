@@ -6,15 +6,16 @@ class SessionsController < ApplicationController
   def new
   end
 
-  def login
-    if @player.valid?
-      session[:player_id] = @player.id
-      redirect_to player_path(@player)
-     else
+  #def login
+   # if @player.valid?
+     # session[:player_id] = @player.id
+      #redirect_to player_path(@player)
+      #redirect_to '/welcome'
+     #else
       
-      redirect_to '/signup'
-    end
-  end
+      #redirect_to '/signup'
+    #end
+  #end
  
 
   def create
@@ -34,7 +35,7 @@ class SessionsController < ApplicationController
 
   def destroy
       session.delete :player_id 
-      redirect_to "/signup"
+      redirect_to "/welcome"
   end
 
   def omniauth
