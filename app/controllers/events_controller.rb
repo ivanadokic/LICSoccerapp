@@ -5,16 +5,13 @@ class EventsController < ApplicationController
 
     def create
         @event = Event.create (params.require(:event).permit(:location, :event_type, :start, :end, :team_id))
-        #removed require and put permit
         @event.save 
         if @event.save 
-          
            redirect_to event_path(@event)
         else
             render :new
 
         end
-
     end
 
     def index

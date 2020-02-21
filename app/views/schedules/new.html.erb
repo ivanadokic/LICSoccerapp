@@ -1,0 +1,25 @@
+<h1>Create a New Schedules</h1>
+
+<%= render partial: 'layouts/errors', locals: {object: @schedules} %>
+
+
+<%= form_with(model: @schedules) do |s| %>
+  <%= s.label :name %>
+  <%= s.text_field :name %>
+  <br>
+
+  <h3>Add Schedules:  </h3>
+  <%= s.label :events_ids, "Schedules:" %>
+  <%= s.collection_check_boxes :evenr_ids, Event.all, :id, :brand_and_color %>
+  <br>
+
+
+  <h3>Or Create a New Shoe</h3>
+  <%= f.fields_for :shoes do |shoe_field| %>
+
+    <%= render 'shoes/form',  {f: shoe_field} %>
+  <hr>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>
