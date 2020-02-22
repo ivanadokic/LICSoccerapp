@@ -2,10 +2,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   root :to => "welcome#home"
-  resources :schedules, only: [:new, :create] do
-  resources :events, only: [:new, :create]
+  resources :schedules, only: [:index, :new, :create] do
+  resources :events, only: [:index, :new, :create]
   end
+
   resources :players, only: [:new, :create]
+  
+  #unnested routes
   resources :events, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
 

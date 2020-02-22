@@ -1,4 +1,5 @@
-<h1>New Event</h1>
+<h1>Create New <%= display_nested_title %> here:</h1>
+
 <% if @event.errors.any? %>
 <div id="error_explanation">
 
@@ -14,25 +15,49 @@
 <% end %>
 
 
-<%= form_for @event do |e|%>
+    #<%= form_for @event do |e|%><%= e.hidden_field :team_id, value: current_player.team_id%><br>
 
- 
-  <%= e.hidden_field :team_id, value: current_player.team_id%><br>
+    #<%= e.label :location%><br>
+    #<%= e.text_field :location%><br>
 
-  <%= e.label :location%><br>
-  <%= e.text_field :location%><br>
+    #<%= e.label :event_type%><br>
+    #<%= e.text_field :event_type%><br>
 
-  <%= e.label :event_type%><br>
-  <%= e.text_field :event_type%><br>
+    #<%= e.label :start%><br>
+    #<%= e.datetime_field :start%><br>
 
-  <%= e.label :start%><br>
-  <%= e.datetime_field :start%><br>
+    #<%= e.label :end%><br>
+    #<%= e.datetime_field :end%><br>
 
-  <%= e.label :end%><br>
-  <%= e.datetime_field :end%><br>
+    #<%= submit_tag "Create"%>
+    
+  #<%end%>
 
-  <%= submit_tag "Create"%>
-  
-<%end%>
+  #<%= button_to "Logout", '/logout', method: :delete%>
 
-<%= button_to "Logout", '/logout', method: :delete%>
+
+
+<%= form_with(model: [@event]) do |e| %>
+
+ <% if @schedule.nil? %>
+  <%= e.label :schedule_id %>
+  <%= e.collection_select :schedule_id, Schedule.all, :id, :name, prompt: true  %>
+  <br>
+
+
+    <h3>Or Create a New Schedule</h3>
+    <%= e.fields_for :schedule do |cat_field| %>
+      <%= cat_field.label :location%>
+      <%= cat_field.text_field :location %>
+      
+      <br>
+    <% end %>
+
+
+  <% else %>
+      <%= f.hidden_field :schedule_id %>
+  <% end %>
+
+   <br>
+  <%= e.submit %>
+<% end %>
