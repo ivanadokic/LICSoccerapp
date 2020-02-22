@@ -2,20 +2,17 @@
 
 <% if @event.errors.any? %>
 <div id="error_explanation">
-
   <h2><%= pluralize(@event.errors.count, "error") %> prohibited this Event to create:</h2>
-
   <ul>
   <% @event.errors.full_messages.each do |msg| %>
     <li><%= msg %></li>
   <% end %>
   </ul>
 </div>
-
 <% end %>
 
-
-    #<%= form_for @event do |e|%><%= e.hidden_field :team_id, value: current_player.team_id%><br>
+  # <%= form_for @event do |e|%>
+  #<%= e.hidden_field :team_id, value: current_player.team_id%><br>
 
     #<%= e.label :location%><br>
     #<%= e.text_field :location%><br>

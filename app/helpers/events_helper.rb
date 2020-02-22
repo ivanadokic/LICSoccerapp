@@ -1,7 +1,7 @@
 module EventsHelper
     def display_nested_header
       if @schedule
-        content_tag(:h2, @schedule.name)
+        content_tag(:h2, @schedule.attending)
       else
         content_tag(:h1, "All the Events" )
       end
@@ -9,7 +9,7 @@ module EventsHelper
   
     def display_nested_title
       if @schedule
-        @schedule.name
+        @schedule.attending
       else
        "Events"
       end
