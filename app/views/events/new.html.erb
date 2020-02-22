@@ -11,10 +11,6 @@
 </div>
 <% end %>
 
-  
-
-
-
 <%= form_with(model: [@event]) do |e| %>
 
  <% if @schedule.nil? %>
@@ -22,7 +18,6 @@
   <%= e.collection_select :schedule_id, Schedule.all, :id, :attending, prompt: true  %>
 
   <br>
-
 
     <h3>Or let us know if Attending</h3>
     <%= e.fields_for :schedule do |e| %>

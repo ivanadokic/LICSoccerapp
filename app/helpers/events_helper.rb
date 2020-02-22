@@ -9,7 +9,7 @@ module EventsHelper
   
     def display_nested_title
       if @schedule
-        @schedule.attending
+         @schedule.attending
       else
        "Events"
       end
