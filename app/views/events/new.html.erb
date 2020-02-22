@@ -29,15 +29,11 @@
     <%= e.label :end%><br>
     <%= e.datetime_field :end%><br>
 
-    <h3>Let us know if you are Attending Event</h3>
-    <%= e.fields_for :schedule do |e| %>
-      <%= e.label :attending%>
-      <%= e.text_field :attending %>
-    <%end%>
+ 
     <%= e.submit %>
   <% end %>
 
-
+ 
   
 
 

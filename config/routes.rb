@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   root :to => "welcome#home"
-  resources :schedules, only: [:index, :new, :create] do
-  resources :events, only: [:index, :new, :create]
+  resources :events, only: [:index] do
+  resources :schedules, only: [:index, :new, :create] 
+ 
   end
 
   resources :players, only: [:new, :create]
