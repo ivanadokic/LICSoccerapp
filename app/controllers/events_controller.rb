@@ -7,8 +7,7 @@ class EventsController < ApplicationController
         end
     end
 
-    
-    
+  
     def create
         @event = Event.create (params.require(:event).permit(:location, :event_type, :start, :end, :team_id))
         @event.save 

@@ -10,14 +10,14 @@
 
   <h3>Add Schedules:  </h3>
   <%= s.label :events_ids, "Schedules:" %>
-  <%= s.collection_check_boxes :event_ids, Event.all, :id, :brand_and_color %>
+  <%= s.collection_check_boxes :event_ids, Event.all, :id, :attending %>
   <br>
 
 
-  <h3>Or Create a New Shoe</h3>
-  <%= f.fields_for :shoes do |shoe_field| %>
+  <h3>Or Create a Schedule</h3>
+  <%= f.fields_for :events do |event_field| %>
 
-    <%= render 'shoes/form',  {f: shoe_field} %>
+    <%= render 'events/form',  {f: event_field} %>
   <hr>
   <% end %>
 
