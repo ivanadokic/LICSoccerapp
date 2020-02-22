@@ -11,17 +11,14 @@
 </div>
 <% end %>
 
-<%= form_with(model: [@event]) do |e| %>
-
- <% if @schedule.nil? %>
-  <%= e.label :schedule_id%>
 
 
 
-  <%= form_for @event do |e|%>
+  <%= form_for @event, :url => {:action => "create"} do |e|%>
 
     <%= e.label :location%><br>
     <%= e.text_field :location%><br>
+    <%= e.hidden_field :team_id, value: current_player.team_id  %>
   
     <%= e.label :event_type%><br>
     <%= e.text_field :event_type%><br>
@@ -31,26 +28,16 @@
   
     <%= e.label :end%><br>
     <%= e.datetime_field :end%><br>
-  
-    <%= submit_tag "Create"%>
-      
-    <%end%>
-  
-  <br>
 
-    <h3>Or let us know if you are Attending Event</h3>
+    <h3>Let us know if you are Attending Event</h3>
     <%= e.fields_for :schedule do |e| %>
       <%= e.label :attending%>
       <%= e.text_field :attending %>
-      
-      <br>
-    <% end %>
-
-
-  <% else %>
-      <%= f.hidden_field :schedule_id %>
+    <%end%>
+    <%= e.submit %>
   <% end %>
 
-   <br>
-  <%= e.submit %>
-<% end %>
+
+  
+
+

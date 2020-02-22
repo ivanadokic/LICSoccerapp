@@ -6,6 +6,7 @@
 <p>Start: <%= @event.start%></p>
 <p>End: <%= @event.end%></p>
 
+
 <%= link_to( "Edit" ,edit_event_path(@event), method: 'edit') %>
 
 <%= link_to( "Delete" ,event_path(@event), method: 'delete') %>

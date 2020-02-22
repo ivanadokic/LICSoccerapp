@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
     def new
         if params[:schedule_id] && @schedule = Schedule.find_by_id(params[:schedule_id])
-            @event = @scheule.events.build #will instansiate new event associates with this schdule
+            @event = @schedule.events.build
+             #will instansiate new event associates with this schedule
         else #not nested
             @event=Event.new
         end
@@ -9,13 +10,14 @@ class EventsController < ApplicationController
 
   
     def create
-        @event = Event.create (params.require(:event).permit(:location, :event_type, :start, :end, :team_id))
+        @event = Event.create (params.require(:event).permit(:location, :event_type, :start, :end, :team_id, :attending))
         @event.save 
         if @event.save 
            redirect_to event_path(@event)
         else
             render :new
         end
+        byebug
     end
 
     def index
