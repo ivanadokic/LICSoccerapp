@@ -2,10 +2,10 @@
 
 <% @schedules.each do |e| %>
   <div>
-    <h3><%= e.name%> <%= link_to "Create new #{c.name}", new_category_shoe_path(c)  %></h3>
+    <h3><%= e.name%> <%= link_to "Create new #{e.name}", new_schedule_event_path(e)  %></h3>
     <ul>
-    <% c.shoes.each do |shoe| %>
-       <li><%= link_to(shoe.brand_and_color, shoe_path(shoe.id))  %></li>
+    <% e.events.each do |event| %>
+       <li><%= link_to(event.attending, event_path(event.id))  %></li>
     <% end %>
     </ul>
   </div>
