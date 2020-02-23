@@ -1,5 +1,4 @@
-# README
-LICSoccerapp
+# LICSoccerapp
 
 This is a fully functional MVC and CRUD application built using Ruby on Rails.
 ## Overview
