@@ -6,8 +6,17 @@
 <p>Start: <%= @event.start%></p>
 <p>End: <%= @event.end%></p>
 
-<h3>Please RSVP</h3>
-  
+
 <%= link_to( "Edit" ,edit_event_path(@event), method: 'edit') %>
-<%= link_to( "RSVP", new_event_schedule_path(@event)) %>
 <%= link_to( "Delete" ,event_path(@event), method: 'delete') %>
+
+  <% if @event.schedules.count < 1 %>
+  <h3>Please RSVP</h3>
+<%= link_to( "RSVP", new_event_schedule_path(@event), method: 'get') %>
+ <% else %>
+<% @event.schedules.each do |e|%>
+    <%= e.player.username %>
+    <%= e.attending %>
+    <% end %>
+
+    <% end %>

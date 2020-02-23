@@ -1,25 +1,25 @@
-<h1>Create a New Schedules</h1>
 
-<%= render partial: 'layouts/errors', locals: {object: @schedules} %>
-
-
-<%= form_with(model: @schedules) do |s| %>
-  <%= s.label :name %>
-  <%= s.text_field :name %>
-  <br>
-
-  <h3>Add Schedules:  </h3>
-  <%= s.label :events_ids, "Schedules:" %>
-  <%= s.collection_check_boxes :event_ids, Event.all, :id, :attending %>
-  <br>
-
-
-  <h3>Or Create a Schedule</h3>
-  <%= f.fields_for :events do |event_field| %>
-
-    <%= render 'events/form',  {f: event_field} %>
-  <hr>
+<h1>Attending</h1>
+<% if @schedule.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@schedule.errors.count, "error") %> prohibited this Event to create:</h2>
+  <ul>
+  <% @schedule.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
   <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <%= f.submit %>
+
+  <%= form_for @schedule, :url => {:action => "create"} do |s|%>
+  <br>
+
+  <%= s.hidden_field :event_id, value: @event.id %>
+  <%= s.label :events_ids, "Schedules:" %>
+  <%= s.text_field :attending %>
+  <br>
+
+
+  <%= s.submit "Please confirm" %>
 <% end %>

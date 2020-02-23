@@ -11,11 +11,9 @@ Rails.application.routes.draw do
   
   #unnested routes
   resources :events, only: [:index, :new, :create, :show, :edit, :update, :destroy]
-
-
-  resources :teams, only: [:new, :create] do
-    resources :events, only: [:index, :new, :create]
-  end
+  resources :teams, only: [:new, :create] 
+  
+  
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#welcome'
 

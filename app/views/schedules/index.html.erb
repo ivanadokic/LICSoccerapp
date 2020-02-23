@@ -2,11 +2,11 @@
 
 <% @schedules.each do |e| %>
   <div>
-    <h3><%= e.name%> <%= link_to "Create new #{e.name}", new_schedule_event_path(e)  %></h3>
+    <h3><%= e.player.name%> <%= link_to "Create new schedule", new_event_schedule_path(e)  %></h3>
     <ul>
-    <% e.events.each do |event| %>
-       <li><%= link_to(event.attending, event_path(event.id))  %></li>
-    <% end %>
+    
+       <li><%= link_to(e.attending, event_path(e.id))  %></li>
+   
     </ul>
   </div>
 <% end %>
