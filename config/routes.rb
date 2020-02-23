@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   root :to => "welcome#home"
+  
   resources :events, only: [:index] do
   resources :schedules, only: [:index, :new, :create] 
  
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#welcome'
+  get 'logout', to: 'sessions#logout'
 
   get 'welcome', to: 'sessions#welcome'
   get 'authorized', to: 'sessions#page_requires_login'

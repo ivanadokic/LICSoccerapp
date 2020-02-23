@@ -32,17 +32,15 @@ class SessionsController < ApplicationController
   end
 
   #logout
-
-  def destroy
-      session.delete :player_id 
-      redirect_to "/welcome"
+  def logout
+      session.delete(:player_id) 
+      redirect_to "/players/new"
   end
 
   def omniauth
     @player = Player.find_or_create_by(uid: auth[:uid]) do |p|
      p.username =auth[:info][:name] 
      p.age = 11
-  
      p.password = SecureRandom.hex #give us random password
     end
     @player.assign_team
