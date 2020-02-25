@@ -36,7 +36,7 @@ class EventsController < ApplicationController
     def update
         @event = Event.find(params[:id])
         @event.update(params.require(:event).permit(location, :event_type, :start, :end))
-        redirect_to @event
+        redirect_to @event_path
       end
     
     def destroy  

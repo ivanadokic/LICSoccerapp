@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root :to => "welcome#home"
   
-  resources :events, only: [:index] do
+  resources :events, only: [:index, :edit, :update] do
   resources :schedules, only: [:index, :new, :create] 
  
   end

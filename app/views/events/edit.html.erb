@@ -1,0 +1,33 @@
+<h1>You can Edit <%= display_nested_title %> here:</h1>
+
+<% if @event.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@event.errors.count, "error") %> prohibited this Event to create:</h2>
+  <ul>
+  <% @event.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+</div>
+<% end %>
+
+
+
+  <%= form_for @event, :url => {:action => "edit"} do |e|%>
+
+    <%= e.label :location%><br>
+    <%= e.text_field :location%><br>
+    
+    <%= e.hidden_field :team_id, value: current_player.team_id  %>
+  
+    <%= e.label :event_type%><br>
+    <%= e.text_field :event_type%><br>
+  
+    <%= e.label :start%><br>
+    <%= e.datetime_field :start%><br>
+  
+    <%= e.label :end%><br>
+    <%= e.datetime_field :end%><br>
+ 
+    <%= e.submit %>
+  <% end %>
