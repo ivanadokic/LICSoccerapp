@@ -1,6 +1,6 @@
 class SchedulesController < ApplicationController
     def index
-        if params[:event_id] && @team = Team.find_by_id(params[:event_id])
+        if params[:event_id] && @team = Event.find_by_id(params[:event_id])
             @schedules = @schedules.team
            
         else
