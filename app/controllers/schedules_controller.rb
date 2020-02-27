@@ -1,8 +1,8 @@
 class SchedulesController < ApplicationController
     def index
-        if params[:event_id] && @team = Event.find_by_id(params[:event_id])
-            @schedules = @events.team
-            #Event.attending.('yes')
+        if params[:event_id] && @event = Event.find_by_id(params[:event_id])
+            @schedules = @event.schedules.attending
+            
         else
             @schedules = Schedule.all
         end
@@ -21,7 +21,11 @@ class SchedulesController < ApplicationController
 
     def new
         @event = Event.find_by_id(params[:event_id])
-        @schedule = @event.schedules.build
+       @schedule = @event.schedules.build
+   
+        
+        
+        #@schedule = @event.schedules.build
        #@event = Event.new
        #@event.schedules.build
     end

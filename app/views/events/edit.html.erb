@@ -13,7 +13,7 @@
 
 
 
-  <%= form_for @event, :url => {:action => "edit"} do |e|%>
+  <%= form_for @event do |e|%>
 
     <%= e.label :location%><br>
     <%= e.text_field :location%><br>

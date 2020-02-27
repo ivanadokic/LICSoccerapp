@@ -2,7 +2,7 @@
 
 <% @schedules.each do |e| %>
   <div>
-    <h3><%= e.player.name%> <%= link_to "Create new schedule", new_event_schedule_path(e)  %></h3>
+    <h3><%= e.player.username%></h3>
     <ul>
     
        <li><%= link_to(e.attending, event_path(e.id))  %></li>
