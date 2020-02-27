@@ -10,17 +10,22 @@
   </head>
 
   <body>
+  <%= image_tag("logo.png", width: '100px') %>
   <div>
   <% if session[:player_id] %>
   <nav>
   <p>You are logged in as: <%= current_player.username %></p>
   <p> Your Team is: <%= current_player.team.name %></p>
   <%= link_to("Logout", '/logout') %>
-  <%= link_to("Create Event", '/events/new') %>
+  <br />
+  <br />
+  ⚽<%= link_to("Create Event", '/events/new') %> ⚽
+ 
+
   <%= link_to("All Events", '/events') %>
   <% else %>
- |<%= link_to("Sign Up", new_player_path) %>
- |<%= link_to("Log In", '/login') %>
+ <%= link_to("Sign Up", new_player_path) %> ⚽
+ <%= link_to("Log In", '/login') %> ⚽
  <%= link_to("Log In With Google", '/auth/google_oauth2') %>
  <% end %>
   </nav>

@@ -36,21 +36,20 @@ class EventsController < ApplicationController
     
         @event.update(params.require(:event).permit(:location, :event_type, :start, :end))
         if @event.save
-        redirect_to event_path(@event)
-        else
+            redirect_to event_path(@event)
+         else
             render :edit
         end
     end
     
     def destroy  
-      
         @event.destroy
         redirect_to events_path
     end
     
-    def show
-        
+    def show   
     end
+    
     private
     def set_event
         @event = Event.find_by_id(params[:id])

@@ -1,7 +1,8 @@
 <%= display_nested_header %>
 <ul>
 <% @events.each do |event| %>
-   <li><a href="/events/<%= event.id %>"><%=event.event_type%> <%=event.team.name%> <%=event.start%></a></li> 
+   <li><a href="/events/<%= event.id %>"><%=event.event_type%> ⚽<%=event.team.name%>⚽<%=event.start%> </a></li> 
 <% end %>
 </ul>
+
 
