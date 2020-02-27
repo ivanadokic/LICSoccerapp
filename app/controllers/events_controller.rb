@@ -17,13 +17,11 @@ class EventsController < ApplicationController
         else
             render :new
         end
-      
     end
 
     def index
         if params[:team_id] && @team = Team.find_by_id(params[:team_id])
             @events = @team.events
-           
         else
             @events = Event.all
         end
@@ -37,7 +35,7 @@ class EventsController < ApplicationController
         @event = Event.find(params[:id])
         @event.update(params.require(:event).permit(location, :event_type, :start, :end))
         redirect_to @event_path
-      end
+    end
     
     def destroy  
         @event = Event.find(params[:id])
