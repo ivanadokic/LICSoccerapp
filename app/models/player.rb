@@ -6,10 +6,8 @@ class Player < ActiveRecord::Base
     validates :username, uniqueness: { message: "is already in use. Try again!"}
     validates :age, presence: true
     validates :age, numericality: { greater_than: 4, less_than: 16, message: "%{value} seems wrong, must be greater than 4 and lees than 16yearss old" }
-   
-   
     
-    has_secure_password
+    has_secure_password #validation require password confirmation 
 
     def assign_team
         t = Team.find_by_age(self.age + 1) 
