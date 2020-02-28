@@ -3,4 +3,8 @@ class Event < ActiveRecord::Base
   
     has_many :schedules
     has_many :players, through: :schedules
+   
+    validates :location, presence: true
+    validates :event_type, presence: true
+    validates :start, presence: true
 end

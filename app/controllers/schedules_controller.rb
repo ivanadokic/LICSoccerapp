@@ -21,13 +21,7 @@ class SchedulesController < ApplicationController
 
     def new
         @event = Event.find_by_id(params[:event_id])
-       @schedule = @event.schedules.build
-   
-        
-        
-        #@schedule = @event.schedules.build
-       #@event = Event.new
-       #@event.schedules.build
+        @schedule = @event.schedules.build
     end
     
 end

@@ -11,24 +11,19 @@ class EventsController < ApplicationController
 
   
     def create
-        @event = Event.create (params.require(:event).permit(:location, :event_type, :start, :end, :team_id, :attending))
-        @event.save 
+        @event = Event.new (events_params)
         if @event.save 
             redirect_to event_path(@event)
-            else
+        else
             render :new
         end
     end
 
     def index
- 
-   
-
         if params[:team_id] && @team = Team.find_by_id(params[:team_id])
             @events = @team.events
         else
             @events = Event.all
-       
         end
     end
 
@@ -38,7 +33,7 @@ class EventsController < ApplicationController
 
     def update
     
-        @event.update(params.require(:event).permit(:location, :event_type, :start, :end))
+        @event.update(events_params)
         if @event.save
             redirect_to event_path(@event)
          else
@@ -55,15 +50,16 @@ class EventsController < ApplicationController
     end
     
     private
+
     def set_event
         @event = Event.find_by_id(params[:id])
-        if @event == nil
+        unless @event
             redirect_to events_path
         end
     end
- private
- def events_params
-    params.require(:event).permit(:event_type, :games, :practices, :search)
- end
+
+    def events_params
+        params.require(:event).permit(:location, :event_type, :start, :end, :team_id, :attending)
+    end
     
 end

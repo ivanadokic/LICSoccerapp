@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root :to => "welcome#home"
   
-  resources :events, only: [:index, :edit, :update] do
+  resources :events do
   resources :schedules, only: [:index, :new, :create] 
  
   end
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :players, only: [:new, :create]
   
   #unnested routes
-  resources :events, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+ 
   resources :teams, only: [:new, :create] 
   
   
