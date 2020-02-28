@@ -14,17 +14,21 @@ class EventsController < ApplicationController
         @event = Event.create (params.require(:event).permit(:location, :event_type, :start, :end, :team_id, :attending))
         @event.save 
         if @event.save 
-           redirect_to event_path(@event)
-        else
+            redirect_to event_path(@event)
+            else
             render :new
         end
     end
 
     def index
+ 
+   
+
         if params[:team_id] && @team = Team.find_by_id(params[:team_id])
             @events = @team.events
         else
             @events = Event.all
+       
         end
     end
 
@@ -57,6 +61,9 @@ class EventsController < ApplicationController
             redirect_to events_path
         end
     end
-
+ private
+ def events_params
+    params.require(:event).permit(:event_type, :games, :practices, :search)
+ end
     
 end
