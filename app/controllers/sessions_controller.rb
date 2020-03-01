@@ -1,10 +1,4 @@
 class SessionsController < ApplicationController
-  #skip_before_action :authorized, only: [:new, :create, :welcome]
-  def welcome
-  end
-    
-  def new
-  end
 
   def create
     @player = Player.find_by(username: params[:username])
@@ -12,17 +6,15 @@ class SessionsController < ApplicationController
 
       session[:player_id] = @player.id
       redirect_to '/welcome'
-      else
+    else
       redirect_to '/login'
     end
   end
  
-
-
   #logout
   def logout
-      session.delete(:player_id) 
-      redirect_to "/players/new"
+    session.delete(:player_id) 
+    redirect_to "/players/new"
   end
 
   def omniauth
@@ -37,13 +29,10 @@ class SessionsController < ApplicationController
     redirect_to '/welcome'
   end
 
-
- 
   private
   def auth
     request.env['omniauth.auth']
   end
-
 
 end
 
