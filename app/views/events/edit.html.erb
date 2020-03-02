@@ -14,20 +14,6 @@
 
 
   <%= form_for @event do |e|%>
+  <%= render 'form', {e: e} %>
 
-    <%= e.label :location%><br>
-    <%= e.text_field :location%><br>
-    
-    <%= e.hidden_field :team_id, value: current_player.team_id  %>
-  
-    <%= e.label :event_type%><br>
-    <%= e.text_field :event_type%><br>
-  
-    <%= e.label :start%><br>
-    <%= e.datetime_field :start%><br>
-  
-    <%= e.label :end%><br>
-    <%= e.datetime_field :end%><br>
- 
-    <%= e.submit %>
   <% end %>

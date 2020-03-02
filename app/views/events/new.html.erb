@@ -16,21 +16,7 @@
 
   <%= form_for @event, :url => {:action => "create"} do |e|%>
 
-    <%= e.label :location%><br>
-    <%= e.text_field :location%><br>
-    <%= e.hidden_field :team_id, value: current_player.team_id  %>
-  
-    <%= e.label :event_type%><br>
-    <%= e.text_field :event_type%><br>
-  
-    <%= e.label :start%><br>
-    <%= e.datetime_field :start%><br>
-  
-    <%= e.label :end%><br>
-    <%= e.datetime_field :end%><br>
-
- 
-    <%= e.submit %>
+  <%= render 'form', {e: e} %>
   <% end %>
 
  
