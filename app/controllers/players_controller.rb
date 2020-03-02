@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-    #skip_before_action :authorized, only: [:new, :create, :show]
+    
     def new
         if logged_in?
             redirect_to player_path(current_player)

@@ -6,8 +6,7 @@ class ApplicationController < ActionController::Base
     #enable :sessions
     set :session_secret, "super_secret_code_word" #encript our sessions
 
-    def home
-    end
+
 
     def authorized
         redirect_to login_path unless logged_in?
