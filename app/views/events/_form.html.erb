@@ -1,0 +1,20 @@
+<!-- duplicated code from edit and new forms-->
+
+<%= e.label :location %><br>
+<%= e.text_field :location %><br>
+    
+<%= e.hidden_field :team_id, value: current_player.team_id  %>
+  
+<%= e.label :event_type%><br>
+<%= e.text_field :event_type%><br>
+  
+<%= e.label :start%><br>
+<%= e.datetime_field :start%><br>
+  
+<%= e.label :end%><br>
+<%= e.datetime_field :end%><br>
+ 
+<%= e.submit %>
+
+<!-- To indicate that this file is a partial (and only part of a larger view),
+ an underscore is prefixed to the filename. -->

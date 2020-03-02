@@ -12,7 +12,7 @@ class Player < ActiveRecord::Base
     def assign_team
         t = Team.find_by_age(self.age + 1) 
         if t.nil?
-        t = Team.find_by_age(self.age + 2)  
+         t = Team.find_by_age(self.age + 2)  
         end
         self.team = t
         self.save

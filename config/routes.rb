@@ -8,7 +8,7 @@ Rails.application.routes.draw do
  
   end
 
-  resources :players, only: [:new, :create]
+  resources :players, only: [:new, :create, :logout]
   
   #unnested routes
  
