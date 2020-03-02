@@ -11,8 +11,6 @@ class SchedulesController < ApplicationController
     end
 
     def create  
-  
-       
         @schedule = current_player.schedules.build(params.require(:schedule).permit(:event_id, :attending))
         if @schedule.save 
            redirect_to event_path(@schedule.event_id)

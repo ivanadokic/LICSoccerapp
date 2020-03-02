@@ -17,12 +17,7 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#logout'
 
   get 'welcome', to: 'sessions#welcome'
-  get 'authorized', to: 'sessions#page_requires_login'
   get 'register', to: 'players#new'
- 
- 
- 
-  
   
   get '/auth/:provider/callback' => 'sessions#omniauth'
   #expect callback from server 
