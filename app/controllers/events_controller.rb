@@ -22,8 +22,9 @@ class EventsController < ApplicationController
     def index
         if params[:team_id] && @team = Team.find_by_id(params[:team_id])
             @events = @team.events
+           
         else
-            @events = Event.all
+            @events = Event.search(params[:search])
         end
     end
 
@@ -61,5 +62,8 @@ class EventsController < ApplicationController
     def events_params
         params.require(:event).permit(:location, :event_type, :start, :end, :team_id, :attending)
     end
+
+   
+    
     
 end
