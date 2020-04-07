@@ -59,3 +59,7 @@ gem 'omniauth-github'
 gem 'omniauth'	
 gem 'omniauth-google-oauth2'	
 gem 'dotenv-rails'
+
+gem 'bootstrap-sass', '~> 3.4.1'
+gem 'sassc-rails', '>= 2.1.0'
+gem 'jquery-rails'

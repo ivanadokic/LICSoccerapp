@@ -1,4 +1,6 @@
-
+<div class="jumbotron jumbotron-fluid">
+<div class="container">
+   
 
 <p>Location: <%= @event.location %></p>
 
@@ -7,9 +9,9 @@
 <p>End: <%= @event.end %></p>
 
 
-<%= link_to( "Edit" ,edit_event_path(@event), method: 'get') %>
-<%= link_to( "Delete" ,event_path(@event), method: 'delete') %>
+<%= link_to( "Edit" ,edit_event_path(@event), method: 'get', :class => "btn btn-primary" ) %>
+<%= link_to( "Delete" ,event_path(@event), method: 'delete', :class => "btn btn-primary") %>
+  
+<h3>Please RSVP</h3>
+<%= link_to( "RSVP", new_event_schedule_path(@event), method: 'get', :class => "btn btn-success") %>
 
-
-  <h3>Please RSVP</h3>
-<%= link_to( "RSVP", new_event_schedule_path(@event), method: 'get') %>

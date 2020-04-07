@@ -10,9 +10,9 @@ class Event < ActiveRecord::Base
 
 def self.search(search)
     if search
-        find(:all, :contains =>['event_type like ?', "%#{search}%"])
+        send(:where, :contains =>['event_type like ?', "%#{search}%"])
     else
-        find(:all)
+        all
     end
 end
 end

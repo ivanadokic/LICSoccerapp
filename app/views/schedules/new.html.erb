@@ -1,5 +1,4 @@
 
-<h1>Attending</h1>
 <% if @schedule.errors.any? %>
 <div id="error_explanation">
   <h2><%= pluralize(@schedule.errors.count, "error") %> prohibited this Event to create:</h2>
@@ -10,16 +9,18 @@
   </ul>
 </div>
 <% end %>
-
-
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+ 
   <%= form_for @schedule, :url => {:action => "create"} do |s|%>
-  <br>
-
   <%= s.hidden_field :event_id, value: @event.id %>
-  <%= s.label :events_ids, "Schedules:" %>
-  <%= s.text_field :attending %>
-  <br>
 
+ <br/>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out to RSVP</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
-  <%= s.submit "Please confirm" %>
 <% end %>
