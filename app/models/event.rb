@@ -7,12 +7,8 @@ class Event < ActiveRecord::Base
     validates :location, presence: true
     validates :event_type, presence: true
     validates :start, presence: true
-
-def self.search(search)
-    if search
-        send(:where, :contains =>['event_type like ?', "%#{search}%"])
-    else
-        all
-    end
-end
+    scope :search, -> (text) { 
+        where("event_type ilike :text or location ilike :text", text: "%#{text}%")
+    }
+   
 end

@@ -1,10 +1,12 @@
-<h1>LICsoccer app</h1>
+
+
 <% if logged_in? %>
     <p>You are Logged In, Welcome <%= current_player.username %></p>
     <p>Your current Team is <%= current_player.team.name %></p>
-
+    <%= render partial: "players/list", locals: { players: @team_players } %>
 <%= button_to "Check Events", '/events', method: :get%>
+<% else %>
 
-<%end%>
+<% end %>
 
 

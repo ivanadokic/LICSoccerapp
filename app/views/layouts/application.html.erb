@@ -10,28 +10,16 @@
   </head>
 
   <body>
-  <%= image_tag("logo.png", width: '100px') %>
-  <div>
-  <% if session[:player_id] %>
-  <nav>
-  <p>You are logged in as: <%= current_player.username %></p>
-  <p> Your Team is: <%= current_player.team.name %></p>
-  <%= link_to("Logout", '/logout') %>
-  <br />
-  <br />
+  <%= render partial: "layouts/navbar" %>
+    <div class="container">
 
-  ⚽<%= link_to("Create Event", '/events/new', :class => "btn btn-primary btn-sm") %> 
-
-  ⚽<%= link_to("All Events", '/events', :class => "btn btn-primary btn-sm") %>
-  <% else %>
- <%= link_to("Sign Up", new_player_path) %> ⚽
- <%= link_to("Log In", '/login') %> ⚽
- <%= link_to("Log In With Google", '/auth/google_oauth2') %>
- <% end %>
-  </nav>
-
-  </div>
-    <%= yield %>
+      <div class="jumbotron jumbotron-fluid">
+      
+        <div class="container">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
 

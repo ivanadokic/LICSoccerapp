@@ -24,7 +24,7 @@ class EventsController < ApplicationController
             @events = @team.events
            
         else
-            @events = Event.search(params[:search])
+            @events = current_player.team.events.search(params[:search]).order(start: :asc)
         end
     end
 
@@ -48,6 +48,8 @@ class EventsController < ApplicationController
     end
     
     def show   
+        @rsvp = logged_in? && Schedule.find_by(event_id: @event.id, player_id: current_player.id)
+    
     end
     
     private

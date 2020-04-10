@@ -13,7 +13,7 @@
   <div class="container">
  
   <%= form_for @schedule, :url => {:action => "create"} do |s|%>
-  <%= s.hidden_field :event_id, \value: @event.id %>
+  <%= s.hidden_field :event_id, value: @event.id %>
 
  <br/>
   <div class="form-group form-check">

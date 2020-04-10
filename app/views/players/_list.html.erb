@@ -1,0 +1,5 @@
+<ul>
+    <% players.each do |player| %>
+        <li><a href="/players/<%= player.id %>"><%= player.username %></a></li>
+    <% end %>
+</ul>

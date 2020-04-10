@@ -1,7 +1,7 @@
-<h1>Sign Up</h1>
+<h1>Sign up</h1>
 
-<% if @player.errors.any? %>
-<div id="error_explanation">
+  <% if @player.errors.any? %>
+  <div id="error_explanation">
 
   <h2><%= pluralize(@player.errors.count, "error") %> prohibited this Player to Sign Up:</h2>
 
@@ -10,10 +10,10 @@
     <li><%= msg %></li>
   <% end %>
   </ul>
-</div>
+  </div>
 
-<% end %>
-<%= form_for @player do |f|%>
+  <% end %>
+  <%= form_for @player do |f|%>
   <%= f.label :username%><br>
   <%= f.text_field :username%><br>
   <%= f.label :password%><br>
@@ -23,4 +23,5 @@
 
 
   <%= submit_tag "Player Sign Up"%>
-<%end%>
+  <%end%>
+  

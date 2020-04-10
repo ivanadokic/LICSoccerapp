@@ -9,7 +9,7 @@ class TeamsController < ApplicationController
         if @team.valid? 
          session[:team_id] = @team.id
          @team.save
-         redirect_to '/welcome'
+         redirect_to root_path
         else
             render :new
         end

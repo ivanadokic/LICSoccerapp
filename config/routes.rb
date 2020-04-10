@@ -5,7 +5,7 @@ Rails.application.routes.draw do
  
   end
 
-  resources :players, only: [:new, :create]
+  resources :players, only: [:new, :create, :show]
   
   #unnested routes
  
@@ -16,11 +16,12 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#logout'
 
-  get 'welcome', to: 'sessions#welcome'
   get 'register', to: 'players#new'
   
   get '/auth/:provider/callback' => 'sessions#omniauth'
   #expect callback from server 
   
   delete '/logout', to: 'sessions#destroy'
+
+  root to: "pages#home"
 end

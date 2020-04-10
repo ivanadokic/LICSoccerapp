@@ -13,13 +13,14 @@ class PlayersController < ApplicationController
         if @player.valid? 
          session[:player_id] = @player.id
          @player.assign_team
-         redirect_to '/welcome'
+         redirect_to root_path
         else
             render :new
         end
     end
     def show
         @player = Player.find_by_id(params[:id])
+        @team_players = @player.team.players
     end
 
     

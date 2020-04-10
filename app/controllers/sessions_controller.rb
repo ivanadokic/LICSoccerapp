@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     if @player && @player.authenticate(params[:password])
 
       session[:player_id] = @player.id
-      redirect_to '/welcome'
+      redirect_to root_path
     else
       redirect_to '/login'
     end
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
     @player.assign_team
   
     session[:player_id] = @player.id
-    redirect_to '/welcome'
+    redirect_to root_path
   end
 
   private
