@@ -24,7 +24,7 @@ class EventsController < ApplicationController
             @events = @team.events
            
         else
-            @events = current_player.team.events.search(params[:search]).order(start: :asc)
+            @events = current_player.team.events
         end
     end
 

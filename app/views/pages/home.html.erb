@@ -1,8 +1,10 @@
 
 
 <% if logged_in? %>
+<div class="alert alert-success" role="alert">
     <p>You are Logged In, Welcome <%= current_player.username %></p>
     <p>Your current Team is <%= current_player.team.name %></p>
+    </div>
     <%= render partial: "players/list", locals: { players: @team_players } %>
 <%= button_to "Check Events", '/events', method: :get%>
 <% else %>

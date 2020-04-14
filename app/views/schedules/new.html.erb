@@ -1,6 +1,7 @@
 
 <% if @schedule.errors.any? %>
 <div id="error_explanation">
+<div class=" alert alert-danger">
   <h2><%= pluralize(@schedule.errors.count, "error") %> prohibited this Event to create:</h2>
   <ul>
   <% @schedule.errors.full_messages.each do |msg| %>
