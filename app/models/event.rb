@@ -7,6 +7,5 @@ class Event < ActiveRecord::Base
     validates :location, presence: true
     validates :event_type, presence: true
     validates :start, presence: true
-    
-   
+
 end

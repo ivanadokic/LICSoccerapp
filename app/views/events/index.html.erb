@@ -4,4 +4,4 @@
 
 <% @events.each do |event| %>
    <li><a href="/events/<%= event.id %>"><%=event.event_type%> ⚽<%=event.team.name%>⚽<%=event.start.to_formatted_s(:short) %> at <%= event.location %></a></li> 
-<% end %>
+   <% end %>
