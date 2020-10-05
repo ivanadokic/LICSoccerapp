@@ -5,6 +5,9 @@ This is a fully functional MVC and CRUD application built using Ruby on Rails.
 
 LICsoccer app welcomes players of LIC Youth Soccer Team to track all the events they might have during the season, such as games and practices for the Team they belong to. 
 
+## Video Walkthrough
+For short video walkthrough please click here: https://vimeo.com/464856606/45aed5df16
+
 ## Installation
 
 Fork and clone repo:
