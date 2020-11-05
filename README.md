@@ -1,4 +1,5 @@
 # LICSoccerapp
+<a href="https://imgur.com/QobzzBB"><img src="https://i.imgur.com/QobzzBB.png?1" title="source: imgur.com" height=259/></a>
 
 This is a fully functional MVC and CRUD application built using Ruby on Rails.
 ## Overview
